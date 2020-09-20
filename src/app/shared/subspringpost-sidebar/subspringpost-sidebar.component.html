@@ -1,0 +1,12 @@
+<div class="sidebar-view-subspringpost">
+    <img src="https://www.vangoghgallery.com/painting/img/irises_header.jpg" class="center">
+    <div style="color: black; font-weight: bold">Browse Categories</div>
+    <hr />
+    <span *ngFor="let subspringpost of subspringposts">
+        <span class="subspringpost-text" ><a style="color: #008B8B; font-weight: bold" href="/view-subspringpost/{{subspringpost.id}}">{{subspringpost.subpostName}}</a></span>
+        <hr />
+    </span>
+    <div style="text-align: center" *ngIf="displayViewAll">
+        <a style="font-weight: bold" routerLink="/list-subspringposts">View All</a>
+    </div>
+</div>
