@@ -3,11 +3,12 @@ input.ng-invalid.ng-touched {
 }
 
 
+.login, 
 .sign-up {
-    background-color: #0079D3;
-    border-color: #0079D3;
+    background-color: #8FBC8F;
+    border-color: #8FBC8F;
     color: aliceblue;
-    fill: #0079D3;
+    fill: #8FBC8F;
     border: 1px solid;
     border-radius: 4px;
     text-align: center;
