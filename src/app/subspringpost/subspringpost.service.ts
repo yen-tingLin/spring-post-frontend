@@ -13,4 +13,9 @@ export class SubspringpostService {
   getAllSubSpringpost(): Observable<Array<SubspringpostModel>> {
     return this.httpClient.get<Array<SubspringpostModel>>('http://localhost:8092/api/subpost/getAll');
   }
+
+  createSubspringpost(subspringpostModel: SubspringpostModel): Observable<SubspringpostModel> {
+    return this.httpClient.post<SubspringpostModel>(
+              'http://localhost:8092/api/subpost/create', subspringpostModel);
+  }
 }
