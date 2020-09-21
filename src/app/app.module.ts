@@ -17,6 +17,13 @@ import { PostTileComponent } from './shared/post-tile/post-tile.component';
 import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { SubspringpostSidebarComponent } from './shared/subspringpost-sidebar/subspringpost-sidebar.component';
+import { CreateSubspringpostComponent } from './subspringpost/create-subspringpost/create-subspringpost.component';
+import { CreatePostComponent } from './post/create-post/create-post.component';
+import { ListSubspringpostComponent } from './subspringpost/list-subspringpost/list-subspringpost.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+import { ViewPostComponent } from './post/view-post/view-post.component';
+import { CommentComponent } from './comment/comment.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +35,12 @@ import { SubspringpostSidebarComponent } from './shared/subspringpost-sidebar/su
     PostTileComponent,
     VoteButtonComponent,
     SideBarComponent,
-    SubspringpostSidebarComponent
+    SubspringpostSidebarComponent,
+    CreateSubspringpostComponent,
+    CreatePostComponent,
+    ListSubspringpostComponent,
+    ViewPostComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +50,8 @@ import { SubspringpostSidebarComponent } from './shared/subspringpost-sidebar/su
     NgxWebstorageModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    EditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
