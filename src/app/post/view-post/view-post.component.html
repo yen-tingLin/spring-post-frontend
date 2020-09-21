@@ -1,0 +1,57 @@
+
+<div class="container">
+    <div class="row">
+      <hr />
+      <div class="col-md-9">
+        <div class="row post">
+          <div class="col-md-1">
+            <app-vote-button [post]="post"></app-vote-button>
+          </div>
+          <div class="col-md-11">
+            <span>
+              <span class="subspringpost-text"><a class="post-url" href="">{{post.category}}</a></span>
+              <span> . Posted
+                <span> {{post.duration}} </span>
+                by
+                <a *ngIf="post.userName === null" class="username" style="color: #CD5C5C" href="">Anonymous</a>
+                <a *ngIf="post.userName != null" class="username" style="color: #CD5C5C" href="">{{post.userName}}</a>
+              </span>
+            </span>
+            <hr />
+            <a routerLink="post.url" class="post-title">{{post.postTitle}}</a>
+            <div>
+              <p class="post-text" [innerHtml]="post.description"></p>
+            </div>
+            <div class="post-comment">
+              <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+                <div class="form-group">
+                  <textarea class="form-control" [formControlName]="'text'" placeholder="Your Thoughts?"></textarea>
+                </div>
+                <button type="submit" class="login float-right">Comment</button>
+              </form>
+            </div>
+            <div style="margin-top: 60px;" *ngFor="let comment of comments">
+              <div class="comment">
+ <!--           <div>
+                  <p>{{comment.duration}}</p>
+                </div>
+-->             <b>{{comment.text}}</b>
+                <div class="username" >
+                  <a style="color: #A0522D" routerLink="/user/comment.username">{{comment.userName}}</a>
+                  <span> . 
+                    <span> {{comment.duration}} </span>                    
+                  </span>                 
+                </div>                
+              </div>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <app-side-bar></app-side-bar>
+        <app-subspringpost-sidebar></app-subspringpost-sidebar>
+      </div>
+    </div>
+  </div>
+ 
