@@ -1,11 +1,11 @@
 <!-- Display Posts-->
-<div class="row post" *ngFor="let post of posts$">
+<div class="row post" *ngFor="let post of posts">
     <app-vote-button [post] = "post"></app-vote-button>
     <!-- Section to Display Post Information-->
     <div class="col-md-11">
         <span class="subspringpost-info">
         <span class="subspringpost-text"><a class="posturl" routerLink="">{{post.category}}</a></span>
-        <span> . Posted by <a class="username" routerLink="/user/{{post.userName}}">{{post.userName}}</a></span>
+        <span> . Posted by <a class="username" style="color: #CD5C5C" routerLink="/user/{{post.userName}}">{{post.userName}}</a></span>
         <span> . {{post.duration}}</span>
         </span>
         <hr />
@@ -13,7 +13,7 @@
         <a class="postname" href="{{post.url}}">{{post.postTitle}}</a>
         </div>
         <div>
-        <p class="post-text">{{post.description}}</p>
+        <p class="post-text" [innerHtml] = "post.description"></p>
         </div>
         <hr />
         <span>

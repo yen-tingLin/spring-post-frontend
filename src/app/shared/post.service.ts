@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { timestamp } from 'rxjs/operators';
+import { CreatePostPayload } from '../post/create-post/create-post-payload';
 import { PostModel } from './post-model';
 
 @Injectable({
@@ -14,4 +17,15 @@ export class PostService {
     return this.httpClient.get<Array<PostModel>>('http://localhost:8092/api/post/getAll');
   }
 
+  createPost(postPayload: CreatePostPayload): Observable<any> {
+    return this.httpClient.post('http://localhost:8092/api/post/create', postPayload);
+  }
+
+  getPost(id: number): Observable<PostModel> {
+    return this.httpClient.get<PostModel>('http://localhost:8092/api/post/' + id);
+  }
+
+  getAllPostsByUser(username: string): Observable<PostModel[]> {
+    return this.httpClient.get<PostModel[]>('http://localhost:8092/api/post/by-user/' + username);
+  }
 }
