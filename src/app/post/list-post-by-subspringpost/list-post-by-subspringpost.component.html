@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row post">
+      <hr />
+      <div class="col-md-6">
+        <h3>Category :  {{categorytName}}</h3>
+        <br>
+        <li *ngFor="let post of posts">
+            <a style="color: #BC8F8F" routerLink="/view-post/{{post.id}}">{{post.postTitle}}</a>
+        </li>
+      </div>
+      <div class="col-md-3">
+        <app-side-bar></app-side-bar>
+      </div>    
+</div>

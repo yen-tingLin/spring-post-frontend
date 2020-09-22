@@ -7,10 +7,14 @@ import { CreatePostComponent } from './post/create-post/create-post.component';
 import { CreateSubspringpostComponent } from './subspringpost/create-subspringpost/create-subspringpost.component';
 import { ListSubspringpostComponent } from './subspringpost/list-subspringpost/list-subspringpost.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import { ListPostByUserComponent } from './post/list-post-by-user/list-post-by-user.component';
+import { ListPostBySubspringpostComponent } from './post/list-post-by-subspringpost/list-post-by-subspringpost.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'list-post-by-subspringpost/:subspringpostName/:subspringpostId', component: ListPostBySubspringpostComponent},
+  { path: 'list-posts-by-user/:username', component: ListPostByUserComponent},
   { path: 'view-post/:id', component: ViewPostComponent },
   { path: 'list-categories', component: ListSubspringpostComponent },
   { path: 'create-post', component: CreatePostComponent },
