@@ -24,16 +24,15 @@ export class TokenInterceptor implements HttpInterceptor {
         
         const jwtToken = this.authService.getJwtToken();
 
-        if (jwtToken) {
-            return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
-                if (error instanceof HttpErrorResponse && error.status === 403) {
-                    return this.handleAuthErrors(req, next);
-                } else {
-                    return throwError(error);
-                }
-            }));
-        }
-        return next.handle(req);
+        return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
+            if (error instanceof HttpErrorResponse && error.status === 403) {
+                return this.handleAuthErrors(req, next);
+            } else {
+                return throwError(error);
+            }
+        }));
+        
+        //return next.handle(req);
     }   
     
     addToken(req: HttpRequest<any>, jwtToken: any) {
@@ -63,7 +62,7 @@ export class TokenInterceptor implements HttpInterceptor {
             filter(result => result !== null),
             take(1),
             switchMap((res) => {
-                return next.handle(this.addToken(req, this.authService.getJwtToken()))
+                return next.handle(this.addToken(req, this.authService.getJwtToken()));
             })
         );
     }
