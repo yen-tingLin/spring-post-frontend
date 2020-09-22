@@ -1,11 +1,12 @@
 <div class="container">
-    <div class="row">
+    <div class="row post">
       <hr />
-      <div class="col-md-9">
+      <div class="col-md-6">s
         <h2>List of Categories</h2>
         <ul>
           <li *ngFor="let subspringpost of subspringposts">
-              <a routerLink="/subpost/{{subspringpost.id}}">{{subspringpost.subpostName}}</a>
+              <b style="color: #20B2AA" routerLink="/list-post-by-subspringpost/{{subspringpost.subpostName}}/{{subspringpost.id}}">{{subspringpost.subpostName}}</b>
+              <span style="color: #66CDAA"> {{subspringpost.description}} </span>
           </li>
         </ul>
       </div>
