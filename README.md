@@ -2,6 +2,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.<br/>
 ## Preview
 ![image](https://github.com/yen-tingLin/v2-spring-post-frontend/blob/master/imag-resize.jpg)<br/><br/>
+![image](https://github.com/yen-tingLin/v2-spring-post-frontend/blob/master/image2-resize.jpg)<br/><br/>
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.<br/> 
 The app will automatically reload if you change any of the source files.<br/>
