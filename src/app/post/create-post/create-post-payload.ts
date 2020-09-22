@@ -3,4 +3,6 @@ export class CreatePostPayload {
     subpostName: string;
     description: string;
     url?: string;
+    // optional
+    userName: string
 }

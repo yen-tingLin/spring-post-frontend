@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { PostService } from 'src/app/shared/post.service';
 import { SubspringpostModel } from 'src/app/subspringpost/subspringpost-response';
 import { SubspringpostService } from 'src/app/subspringpost/subspringpost.service';
@@ -20,13 +21,15 @@ export class CreatePostComponent implements OnInit {
 
   constructor(private router: Router, 
             private postService: PostService,
-            private subspringpostService: SubspringpostService) 
+            private subspringpostService: SubspringpostService,
+            private authService: AuthService) 
   { 
     this.postPayload = {
       title: '',
       subpostName: '',
       description: '',
-      url: ''
+      url: '',
+      userName: ''
     }
   }
 
@@ -53,6 +56,7 @@ export class CreatePostComponent implements OnInit {
     this.postPayload.subpostName = this.createPostForm.get('subspringpostName').value;
     this.postPayload.description = this.createPostForm.get('description').value;
     this.postPayload.url = this.createPostForm.get('url').value;
+    this.postPayload.userName = this.authService.getUserName();
 
     this.postService.createPost(this.postPayload).subscribe(
       data => {
