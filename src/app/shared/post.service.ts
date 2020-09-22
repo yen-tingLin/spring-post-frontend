@@ -21,11 +21,15 @@ export class PostService {
     return this.httpClient.post('http://localhost:8092/api/post/create', postPayload);
   }
 
-  getPost(id: number): Observable<PostModel> {
-    return this.httpClient.get<PostModel>('http://localhost:8092/api/post/' + id);
+  getPost(postId: number): Observable<PostModel> {
+    return this.httpClient.get<PostModel>('http://localhost:8092/api/post/' + postId);
   }
 
-  getAllPostsByUser(username: string): Observable<PostModel[]> {
-    return this.httpClient.get<PostModel[]>('http://localhost:8092/api/post/by-user/' + username);
+  getAllPostsByAuthor(username: string): Observable<Array<PostModel>> {
+    return this.httpClient.get<Array<PostModel>>('http://localhost:8092/api/post/by-user/' + username);
+  }
+
+  getAllPostsByCategory(subspringpostId: number): Observable<Array<PostModel>> {
+    return this.httpClient.get<Array<PostModel>>('http://localhost:8092/api/post/by-subpost/' + subspringpostId);
   }
 }
