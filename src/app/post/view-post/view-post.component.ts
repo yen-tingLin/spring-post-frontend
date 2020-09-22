@@ -6,6 +6,7 @@ import { PostModel } from 'src/app/shared/post-model';
 import { PostService } from 'src/app/shared/post.service';
 import { CommentPayload } from 'src/app/comment/comment-payload';
 import { CommentService } from 'src/app/comment/comment.service';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 
 @Component({
   selector: 'app-view-post',
@@ -23,6 +24,7 @@ export class ViewPostComponent implements OnInit {
   constructor(private postService: PostService,
             private activateRoute: ActivatedRoute,
             private commentService: CommentService,
+            private authService: AuthService,
             private router: Router) 
   { 
     this.postId = this.activateRoute.snapshot.params.id;
@@ -33,7 +35,8 @@ export class ViewPostComponent implements OnInit {
 
     this.commentPayload = {
       text: '',
-      postId: this.postId
+      postId: this.postId,
+      userName: ''
     };
 
   }
@@ -45,6 +48,10 @@ export class ViewPostComponent implements OnInit {
 
   postComment() {
     this.commentPayload.text = this.commentForm.get('text').value;
+
+    if(this.authService.isLoggedIn) {
+      this.commentPayload.userName = this.authService.getUserName();
+    }
  
     this.commentService.postComment(this.commentPayload).subscribe(
       data => {
