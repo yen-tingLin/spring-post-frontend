@@ -18,4 +18,5 @@ export class SubspringpostService {
     return this.httpClient.post<SubspringpostModel>(
               'http://localhost:8092/api/subpost/create', subspringpostModel);
   }
+
 }
