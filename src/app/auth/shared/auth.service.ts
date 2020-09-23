@@ -16,9 +16,10 @@ export class AuthService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() userName: EventEmitter<string> = new EventEmitter();
 
+  // updated after refresh pages
   refreshTokenPayload = {
-    refreshToken: '',
-    userName: ''
+    refreshToken: this.getRefreshToken(),
+    userName: this.getUserName()
   }
 
   constructor(private httpClient: HttpClient,
@@ -39,7 +40,7 @@ export class AuthService {
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('userName', data.userName);
 
-        // update refreshTokenPayload
+        // update refreshTokenPayload in case page in not refreshed
         this.refreshTokenPayload.refreshToken = this.getRefreshToken();
         this.refreshTokenPayload.userName = this.getUserName();
 
