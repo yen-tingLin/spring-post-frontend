@@ -5,19 +5,20 @@
     <div class="col-md-11">
         <span class="subspringpost-info">
         <span class="subspringpost-text"><a class="posturl" routerLink="">{{post.category}}</a></span>
-        <span> . Posted by <a class="username" style="color: #CD5C5C" routerLink="/user/{{post.userName}}">{{post.userName}}</a></span>
+        <span> . Posted by <a class="username" style="color: #CD5C5C" routerLink="/list-posts-by-user/{{post.userName}}">{{post.userName}}</a></span>
         <span> . {{post.duration}}</span>
         </span>
         <hr />
         <div class="post-title">
-        <a class="postname" href="{{post.url}}">{{post.postTitle}}</a>
+        <!--<a class="postname" href="{{post.url}}">{{post.postTitle}}</a>-->
+        <a class="postname" style="color: #000" routerLink="/view-post/{{post.id}}">{{post.postTitle}}</a>
         </div>
         <div>
         <p class="post-text" [innerHtml] = "post.description"></p>
         </div>
         <hr />
         <span>
-        <a class="btnCommments" role="button">
+        <a class="btnCommments" routerLink="/view-post/{{post.id}}" role="button">
             <fa-icon [icon]="faComments"></fa-icon>
             Comments({{post.commentCount}})
         </a>
