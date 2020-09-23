@@ -23,6 +23,10 @@ import { ListSubspringpostComponent } from './subspringpost/list-subspringpost/l
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { CommentComponent } from './comment/comment.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListPostByUserComponent } from './post/list-post-by-user/list-post-by-user.component';
+import { ListPostBySubspringpostComponent } from './post/list-post-by-subspringpost/list-post-by-subspringpost.component';
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 
 
 @NgModule({
@@ -40,7 +44,10 @@ import { CommentComponent } from './comment/comment.component';
     CreatePostComponent,
     ListSubspringpostComponent,
     ViewPostComponent,
-    CommentComponent
+    CommentComponent,
+    ListPostByUserComponent,
+    ListPostBySubspringpostComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,8 @@ import { CommentComponent } from './comment/comment.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FontAwesomeModule,
-    EditorModule
+    EditorModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

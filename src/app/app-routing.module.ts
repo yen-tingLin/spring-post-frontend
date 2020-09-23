@@ -9,10 +9,12 @@ import { ListSubspringpostComponent } from './subspringpost/list-subspringpost/l
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { ListPostByUserComponent } from './post/list-post-by-user/list-post-by-user.component';
 import { ListPostBySubspringpostComponent } from './post/list-post-by-subspringpost/list-post-by-subspringpost.component';
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'user-profile/:name', component: UserProfileComponent },
   { path: 'list-post-by-subspringpost/:subspringpostName/:subspringpostId', component: ListPostBySubspringpostComponent},
   { path: 'list-posts-by-user/:username', component: ListPostByUserComponent},
   { path: 'view-post/:id', component: ViewPostComponent },
