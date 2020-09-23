@@ -19,7 +19,7 @@ export class CommentService {
   }
 
   getCommentsByUser(username: string) {
-    return this.httpClient.get<CommentPayload[]>(
+    return this.httpClient.get<Array<CommentPayload>>(
           'http://localhost:8092/api/comments/by-user/' + username);
   }
 

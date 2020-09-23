@@ -13,12 +13,13 @@
               <span> . Posted
                 <span> {{post.duration}} </span>
                 by
-                <a *ngIf="post.userName === null" class="username" style="color: #CD5C5C" href="">Anonymous</a>
-                <a *ngIf="post.userName != null" class="username" style="color: #CD5C5C" href="">{{post.userName}}</a>
+          <!--  <a *ngIf="post.userName === ''" class="username" style="color: #CD5C5C" href="">Anonymous</a> --> 
+                <a *ngIf="post.userName != ''" class="username" style="color: #CD5C5C" href="">{{post.userName}}</a>
               </span>
             </span>
             <hr />
-            <a routerLink="post.url" class="post-title">{{post.postTitle}}</a>
+            <!--<a routerLink="" class="post-title">{{post.postTitle}}</a>-->
+            <div class="post-title">{{post.postTitle}}</div>
             <div>
               <p class="post-text" [innerHtml]="post.description"></p>
             </div>
@@ -39,8 +40,8 @@
                 <div class="username" >
                   <a style="color: #A0522D" routerLink="/user/comment.username">{{comment.userName}}</a>
                   <span> . 
-                    <span> {{comment.duration}} </span>                    
-                  </span>                 
+                  <span> {{comment.duration}} </span>                    
+                  </span>           
                 </div>                
               </div>
               <hr />
