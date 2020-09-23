@@ -39,6 +39,10 @@ export class AuthService {
         this.localStorage.store('refreshToken', data.refreshToken);
         this.localStorage.store('userName', data.userName);
 
+        // update refreshTokenPayload
+        this.refreshTokenPayload.refreshToken = this.getRefreshToken();
+        this.refreshTokenPayload.userName = this.getUserName();
+
         this.loggedIn.emit(true);
         this.userName.emit(data.userName);
         return true;
