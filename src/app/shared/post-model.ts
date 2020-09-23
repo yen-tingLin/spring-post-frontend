@@ -9,5 +9,7 @@ export class PostModel {
     commentCount: string;
     voteCount: string;
     
+    upVote: boolean;
+    downVote: boolean;
 
 }
