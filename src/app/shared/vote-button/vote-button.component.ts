@@ -53,7 +53,7 @@ export class VoteButtonComponent implements OnInit {
   }
 
   vote() {
-    this.votePayload.postId = this.post.id;
+    this.votePayload.postId = this?.post?.id;
     this.votePayload.userName = this.authService.getUserName();
 
     this.voteService.vote(this.votePayload).subscribe(
@@ -69,7 +69,7 @@ export class VoteButtonComponent implements OnInit {
   // update voteCount and wheather the post is upVoted or
   // downVoted by this user 
   updateVoteDetails() {
-    this.postService.getPost(this.post.id).subscribe(
+    this.postService.getPost(this?.post?.id).subscribe(
       data => {
         this.post = data;
       }, error => {

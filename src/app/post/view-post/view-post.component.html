@@ -9,19 +9,20 @@
           </div>
           <div class="col-md-11">
             <span>
-              <span class="subspringpost-text"><a class="post-url" href="">{{post.category}}</a></span>
+              <span class="subspringpost-text"><a class="post-url" href="">{{post?.category}}</a></span>
               <span> . Posted
-                <span> {{post.duration}} </span>
+                <span> {{post?.duration}} </span>
                 by
           <!--  <a *ngIf="post.userName === ''" class="username" style="color: #CD5C5C" href="">Anonymous</a> --> 
-                <a *ngIf="post.userName != ''" class="username" style="color: #CD5C5C" href="">{{post.userName}}</a>
+          <!--  <a *ngIf="post.userName != ''" class="username" style="color: #CD5C5C" href="">{{post.userName}}</a>  -->
+                <a  class="username" style="color: #CD5C5C" href="">{{post?.userName}}</a>
               </span>
             </span>
             <hr />
             <!--<a routerLink="" class="post-title">{{post.postTitle}}</a>-->
-            <div class="post-title">{{post.postTitle}}</div>
+            <div class="post-title">{{post?.postTitle}}</div>
             <div>
-              <p class="post-text" [innerHtml]="post.description"></p>
+              <p class="post-text" [innerHtml]="post?.description"></p>
             </div>
             <div class="post-comment">
               <form [formGroup]="commentForm" (ngSubmit)="postComment()">
